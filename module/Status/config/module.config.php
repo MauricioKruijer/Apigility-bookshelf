@@ -202,4 +202,24 @@ return [
             ],
         ],
     ],
+    'zf-mvc-auth' => [
+        'authorization' => [
+            'Status\\V1\\Rest\\Status\\Controller' => [
+                'collection' => [
+                    'GET' => false,
+                    'POST' => true,
+                    'PUT' => false,
+                    'PATCH' => false,
+                    'DELETE' => false,
+                ],
+                'entity' => [
+                    'GET' => false,
+                    'POST' => false,
+                    'PUT' => true,
+                    'PATCH' => true,
+                    'DELETE' => true,
+                ],
+            ],
+        ],
+    ],
 ];

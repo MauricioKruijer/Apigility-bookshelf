@@ -92,7 +92,14 @@ return [
         'Status\\V1\\Rest\\Status\\Validator' => [
             0 => [
                 'required' => true,
-                'validators' => [],
+                'validators' => [
+                    0 => [
+                        'name' => \Zend\Validator\StringLength::class,
+                        'options' => [
+                            'max' => '140',
+                        ],
+                    ],
+                ],
                 'filters' => [
                     0 => [
                         'name' => \Zend\Filter\StringTrim::class,

@@ -75,6 +75,9 @@ return [
         'Status\\V1\\Rpc\\Ping\\Controller' => [
             'input_filter' => 'Status\\V1\\Rpc\\Ping\\Validator',
         ],
+        'Status\\V1\\Rest\\Status\\Controller' => [
+            'input_filter' => 'Status\\V1\\Rest\\Status\\Validator',
+        ],
     ],
     'input_filter_specs' => [
         'Status\\V1\\Rpc\\Ping\\Validator' => [
@@ -84,6 +87,29 @@ return [
                 'filters' => [],
                 'name' => 'ack',
                 'description' => 'Acknowledge the request with a timestamp',
+            ],
+        ],
+        'Status\\V1\\Rest\\Status\\Validator' => [
+            0 => [
+                'required' => true,
+                'validators' => [],
+                'filters' => [],
+                'name' => 'message',
+                'description' => 'A status message of no more than 140 characters',
+                'error_message' => 'A status message must contain between 1 and 140 characters',
+            ],
+            1 => [
+                'required' => true,
+                'validators' => [],
+                'filters' => [],
+                'name' => 'user',
+                'description' => 'The user providing the status message. It must be non-empty, and fulfill a regular expression.',
+            ],
+            2 => [
+                'required' => true,
+                'validators' => [],
+                'filters' => [],
+                'name' => 'timestamp',
             ],
         ],
     ],

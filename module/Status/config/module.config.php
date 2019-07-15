@@ -93,7 +93,12 @@ return [
             0 => [
                 'required' => true,
                 'validators' => [],
-                'filters' => [],
+                'filters' => [
+                    0 => [
+                        'name' => \Zend\Filter\StringTrim::class,
+                        'options' => [],
+                    ],
+                ],
                 'name' => 'message',
                 'description' => 'A status message of no more than 140 characters',
                 'error_message' => 'A status message must contain between 1 and 140 characters',

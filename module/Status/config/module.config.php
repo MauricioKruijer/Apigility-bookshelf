@@ -112,16 +112,36 @@ return [
             ],
             1 => [
                 'required' => true,
-                'validators' => [],
-                'filters' => [],
+                'validators' => [
+                    0 => [
+                        'name' => \Zend\Validator\Regex::class,
+                        'options' => [
+                            'pattern' => '/^(mau|wopwop|mwop|andi|zeev)$/',
+                        ],
+                    ],
+                ],
+                'filters' => [
+                    0 => [
+                        'name' => \Zend\Filter\StringTrim::class,
+                        'options' => [],
+                    ],
+                ],
                 'name' => 'user',
-                'description' => 'The user providing the status message. It must be non-empty, and fulfill a regular expression.',
+                'description' => 'The user submitting the status message.',
+                'error_message' => 'You must provide a valid user.',
             ],
             2 => [
-                'required' => true,
-                'validators' => [],
+                'required' => false,
+                'validators' => [
+                    0 => [
+                        'name' => \Zend\Validator\Digits::class,
+                        'options' => [],
+                    ],
+                ],
                 'filters' => [],
                 'name' => 'timestamp',
+                'description' => 'The timestamp when the status message was last modified.',
+                'error_message' => 'You must provide a timestamp.',
             ],
         ],
     ],

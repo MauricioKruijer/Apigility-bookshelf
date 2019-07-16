@@ -31,6 +31,7 @@ return [
     'Phpro\\DoctrineHydrationModule',
     'ZF\\Apigility\\Doctrine\\Admin',
     'ZF\\Apigility\\Doctrine\\Server',
+    'DoctrineORMModule',
     'Application',
     'DoctrineModule',
     'ZF\\Versioning',

@@ -8,6 +8,8 @@
  * List of enabled modules for this application.
  */
 return [
+    'Zend\Cache',
+    'Zend\Form',
     'Zend\Db',
     'Zend\Filter',
     'Zend\Hydrator',
@@ -16,6 +18,7 @@ return [
     'Zend\Router',
     'Zend\Validator',
     'ZF\Apigility',
+    'ZF\Apigility\Admin', // Hmmm Might be a bit dangerous to leave this in prod ¯\_(ツ)_/¯
     'ZF\Apigility\Documentation',
     'ZF\ApiProblem',
     'ZF\Configuration',
@@ -27,5 +30,23 @@ return [
     'ZF\Rest',
     'ZF\Rpc',
     'ZF\Versioning',
+    'DoctrineModule',
+    'Phpro\DoctrineHydrationModule',
+    'ZF\Apigility\Doctrine\Admin',
+    'ZF\Apigility\Doctrine\Server',
     'Application',
+    'DoctrineModule',
+    'ZF\Versioning',
+    'ZF\ApiProblem',
+    'ZF\ContentNegotiation',
+    'ZF\Rpc',
+    'ZF\MvcAuth',
+    'ZF\Hal',
+    'ZF\Rest',
+    'ZF\ContentValidation',
+    'ZF\Configuration',
+    'Phpro\DoctrineHydrationModule',
+    'ZF\Apigility\Doctrine\Admin',
+    'ZF\Apigility\Doctrine\Server',
+    'ZF\Apigility\Documentation',
 ];

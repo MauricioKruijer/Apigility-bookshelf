@@ -11,11 +11,21 @@ return [
                     ],
                 ],
             ],
+            'bookshelf.rest.doctrine.author' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => '/author[/:author_id]',
+                    'defaults' => [
+                        'controller' => 'Bookshelf\\V1\\Rest\\Author\\Controller',
+                    ],
+                ],
+            ],
         ],
     ],
     'zf-versioning' => [
         'uri' => [
             0 => 'bookshelf.rest.doctrine.album',
+            1 => 'bookshelf.rest.doctrine.author',
         ],
     ],
     'zf-rest' => [
@@ -42,10 +52,34 @@ return [
             'collection_class' => \Bookshelf\V1\Rest\Album\AlbumCollection::class,
             'service_name' => 'Album',
         ],
+        'Bookshelf\\V1\\Rest\\Author\\Controller' => [
+            'listener' => \Bookshelf\V1\Rest\Author\AuthorResource::class,
+            'route_name' => 'bookshelf.rest.doctrine.author',
+            'route_identifier_name' => 'author_id',
+            'entity_identifier_name' => 'id',
+            'collection_name' => 'author',
+            'entity_http_methods' => [
+                0 => 'GET',
+                1 => 'PATCH',
+                2 => 'PUT',
+                3 => 'DELETE',
+            ],
+            'collection_http_methods' => [
+                0 => 'GET',
+                1 => 'POST',
+            ],
+            'collection_query_whitelist' => [],
+            'page_size' => 25,
+            'page_size_param' => null,
+            'entity_class' => \Application\Entity\Author::class,
+            'collection_class' => \Bookshelf\V1\Rest\Author\AuthorCollection::class,
+            'service_name' => 'Author',
+        ],
     ],
     'zf-content-negotiation' => [
         'controllers' => [
             'Bookshelf\\V1\\Rest\\Album\\Controller' => 'HalJson',
+            'Bookshelf\\V1\\Rest\\Author\\Controller' => 'HalJson',
         ],
         'accept_whitelist' => [
             'Bookshelf\\V1\\Rest\\Album\\Controller' => [
@@ -53,9 +87,18 @@ return [
                 1 => 'application/hal+json',
                 2 => 'application/json',
             ],
+            'Bookshelf\\V1\\Rest\\Author\\Controller' => [
+                0 => 'application/vnd.bookshelf.v1+json',
+                1 => 'application/hal+json',
+                2 => 'application/json',
+            ],
         ],
         'content_type_whitelist' => [
             'Bookshelf\\V1\\Rest\\Album\\Controller' => [
+                0 => 'application/vnd.bookshelf.v1+json',
+                1 => 'application/json',
+            ],
+            'Bookshelf\\V1\\Rest\\Author\\Controller' => [
                 0 => 'application/vnd.bookshelf.v1+json',
                 1 => 'application/json',
             ],
@@ -74,6 +117,17 @@ return [
                 'route_name' => 'bookshelf.rest.doctrine.album',
                 'is_collection' => true,
             ],
+            \Application\Entity\Author::class => [
+                'route_identifier_name' => 'author_id',
+                'entity_identifier_name' => 'id',
+                'route_name' => 'bookshelf.rest.doctrine.author',
+                'hydrator' => 'Bookshelf\\V1\\Rest\\Author\\AuthorHydrator',
+            ],
+            \Bookshelf\V1\Rest\Author\AuthorCollection::class => [
+                'entity_identifier_name' => 'id',
+                'route_name' => 'bookshelf.rest.doctrine.author',
+                'is_collection' => true,
+            ],
         ],
     ],
     'zf-apigility' => [
@@ -81,6 +135,10 @@ return [
             \Bookshelf\V1\Rest\Album\AlbumResource::class => [
                 'object_manager' => 'doctrine.entitymanager.orm_default',
                 'hydrator' => 'Bookshelf\\V1\\Rest\\Album\\AlbumHydrator',
+            ],
+            \Bookshelf\V1\Rest\Author\AuthorResource::class => [
+                'object_manager' => 'doctrine.entitymanager.orm_default',
+                'hydrator' => 'Bookshelf\\V1\\Rest\\Author\\AuthorHydrator',
             ],
         ],
     ],
@@ -92,10 +150,20 @@ return [
             'strategies' => [],
             'use_generated_hydrator' => true,
         ],
+        'Bookshelf\\V1\\Rest\\Author\\AuthorHydrator' => [
+            'entity_class' => \Application\Entity\Author::class,
+            'object_manager' => 'doctrine.entitymanager.orm_default',
+            'by_value' => true,
+            'strategies' => [],
+            'use_generated_hydrator' => true,
+        ],
     ],
     'zf-content-validation' => [
         'Bookshelf\\V1\\Rest\\Album\\Controller' => [
             'input_filter' => 'Bookshelf\\V1\\Rest\\Album\\Validator',
+        ],
+        'Bookshelf\\V1\\Rest\\Author\\Controller' => [
+            'input_filter' => 'Bookshelf\\V1\\Rest\\Author\\Validator',
         ],
     ],
     'input_filter_specs' => [
@@ -114,6 +182,40 @@ return [
                 'validators' => [],
             ],
             1 => [
+                'name' => 'createdAt',
+                'required' => false,
+                'filters' => [],
+                'validators' => [],
+            ],
+        ],
+        'Bookshelf\\V1\\Rest\\Author\\Validator' => [
+            0 => [
+                'name' => 'name',
+                'required' => true,
+                'filters' => [
+                    0 => [
+                        'name' => \Zend\Filter\StringTrim::class,
+                    ],
+                    1 => [
+                        'name' => \Zend\Filter\StripTags::class,
+                    ],
+                ],
+                'validators' => [],
+            ],
+            1 => [
+                'name' => 'stationery',
+                'required' => false,
+                'filters' => [
+                    0 => [
+                        'name' => \Zend\Filter\StringTrim::class,
+                    ],
+                    1 => [
+                        'name' => \Zend\Filter\StripTags::class,
+                    ],
+                ],
+                'validators' => [],
+            ],
+            2 => [
                 'name' => 'createdAt',
                 'required' => false,
                 'filters' => [],

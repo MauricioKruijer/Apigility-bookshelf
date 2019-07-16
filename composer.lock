@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "621996ab7099761de233cadc4ae44588",
+    "content-hash": "e3934db16ff97ac5b60a50e8668a3bf9",
     "packages": [
         {
             "name": "bshaffer/oauth2-server-php",
@@ -390,6 +390,88 @@
             "time": "2018-11-21T01:24:55+00:00"
         },
         {
+            "name": "doctrine/dbal",
+            "version": "v2.9.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/dbal.git",
+                "reference": "22800bd651c1d8d2a9719e2a3dc46d5108ebfcc9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/22800bd651c1d8d2a9719e2a3dc46d5108ebfcc9",
+                "reference": "22800bd651c1d8d2a9719e2a3dc46d5108ebfcc9",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/cache": "^1.0",
+                "doctrine/event-manager": "^1.0",
+                "ext-pdo": "*",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^5.0",
+                "jetbrains/phpstorm-stubs": "^2018.1.2",
+                "phpstan/phpstan": "^0.10.1",
+                "phpunit/phpunit": "^7.4",
+                "symfony/console": "^2.0.5|^3.0|^4.0",
+                "symfony/phpunit-bridge": "^3.4.5|^4.0.5"
+            },
+            "suggest": {
+                "symfony/console": "For helpful console commands such as SQL execution and import of files."
+            },
+            "bin": [
+                "bin/doctrine-dbal"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.9.x-dev",
+                    "dev-develop": "3.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\DBAL\\": "lib/Doctrine/DBAL"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                }
+            ],
+            "description": "Powerful PHP database abstraction layer (DBAL) with many features for database schema introspection and management.",
+            "homepage": "https://www.doctrine-project.org/projects/dbal.html",
+            "keywords": [
+                "abstraction",
+                "database",
+                "dbal",
+                "mysql",
+                "persistence",
+                "pgsql",
+                "php",
+                "queryobject"
+            ],
+            "time": "2018-12-31T03:27:51+00:00"
+        },
+        {
             "name": "doctrine/doctrine-module",
             "version": "2.1.9",
             "source": {
@@ -489,6 +571,99 @@
                 "zf"
             ],
             "time": "2019-02-17T20:11:57+00:00"
+        },
+        {
+            "name": "doctrine/doctrine-orm-module",
+            "version": "2.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/DoctrineORMModule.git",
+                "reference": "652d8aa636333b6b3f39a2f079c1565b5a9f5a6e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/DoctrineORMModule/zipball/652d8aa636333b6b3f39a2f079c1565b5a9f5a6e",
+                "reference": "652d8aa636333b6b3f39a2f079c1565b5a9f5a6e",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "^2.6.0",
+                "doctrine/doctrine-module": "^2.1.3",
+                "doctrine/orm": "^2.6.3",
+                "php": "^7.1",
+                "symfony/console": "^3.3 || ^4.0",
+                "zendframework/zend-hydrator": "^2.3",
+                "zendframework/zend-mvc": "^3.1",
+                "zendframework/zend-servicemanager": "^3.3",
+                "zendframework/zend-stdlib": "^3.2.1"
+            },
+            "require-dev": {
+                "doctrine/data-fixtures": "^1.2.1",
+                "doctrine/migrations": "^1.5 || ^2.0",
+                "phpunit/phpunit": "^7.0.3",
+                "squizlabs/php_codesniffer": "^2.7",
+                "zendframework/zend-console": "^2.6",
+                "zendframework/zend-developer-tools": "^1.1",
+                "zendframework/zend-i18n": "^2.7.3",
+                "zendframework/zend-log": "^2.9",
+                "zendframework/zend-modulemanager": "^2.7.2",
+                "zendframework/zend-mvc-console": "^1.2",
+                "zendframework/zend-serializer": "^2.8"
+            },
+            "suggest": {
+                "doctrine/migrations": "doctrine migrations if you want to keep your schema definitions versioned",
+                "zendframework/zend-developer-tools": "zend-developer-tools if you want to profile operations executed by the ORM during development",
+                "zendframework/zend-form": "if you want to use form elements backed by Doctrine"
+            },
+            "type": "library",
+            "extra": {
+                "zf": {
+                    "config-provider": "DoctrineORMModule\\ConfigProvider",
+                    "module": "DoctrineORMModule"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/autoload.php"
+                ],
+                "psr-0": {
+                    "DoctrineORMModule\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Spraggs",
+                    "email": "theman@spiffyjr.me",
+                    "homepage": "http://www.spiffyjr.me/"
+                },
+                {
+                    "name": "Evan Coury",
+                    "email": "me@evancoury.com",
+                    "homepage": "http://blog.evan.pro/"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@hotmail.com"
+                },
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com",
+                    "homepage": "http://marco-pivetta.com/"
+                }
+            ],
+            "description": "Zend Framework Module that provides Doctrine ORM functionality",
+            "homepage": "http://www.doctrine-project.org/",
+            "keywords": [
+                "doctrine",
+                "module",
+                "orm",
+                "zf"
+            ],
+            "time": "2019-07-10T21:59:42+00:00"
         },
         {
             "name": "doctrine/event-manager",
@@ -746,6 +921,88 @@
                 "php"
             ],
             "time": "2019-06-08T11:03:04+00:00"
+        },
+        {
+            "name": "doctrine/orm",
+            "version": "v2.6.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/orm.git",
+                "reference": "434820973cadf2da2d66e7184be370084cc32ca8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/orm/zipball/434820973cadf2da2d66e7184be370084cc32ca8",
+                "reference": "434820973cadf2da2d66e7184be370084cc32ca8",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/annotations": "~1.5",
+                "doctrine/cache": "~1.6",
+                "doctrine/collections": "^1.4",
+                "doctrine/common": "^2.7.1",
+                "doctrine/dbal": "^2.6",
+                "doctrine/instantiator": "~1.1",
+                "ext-pdo": "*",
+                "php": "^7.1",
+                "symfony/console": "~3.0|~4.0"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^1.0",
+                "phpunit/phpunit": "^6.5",
+                "squizlabs/php_codesniffer": "^3.2",
+                "symfony/yaml": "~3.4|~4.0"
+            },
+            "suggest": {
+                "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
+            },
+            "bin": [
+                "bin/doctrine"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\ORM\\": "lib/Doctrine/ORM"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com"
+                }
+            ],
+            "description": "Object-Relational-Mapper for PHP",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "database",
+                "orm"
+            ],
+            "time": "2018-11-20T23:46:46+00:00"
         },
         {
             "name": "doctrine/persistence",
@@ -1641,59 +1898,6 @@
                 "zf"
             ],
             "time": "2018-05-01T21:58:00+00:00"
-        },
-        {
-            "name": "zendframework/zend-code",
-            "version": "3.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zendframework/zend-code.git",
-                "reference": "c21db169075c6ec4b342149f446e7b7b724f95eb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-code/zipball/c21db169075c6ec4b342149f446e7b7b724f95eb",
-                "reference": "c21db169075c6ec4b342149f446e7b7b724f95eb",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1",
-                "zendframework/zend-eventmanager": "^2.6 || ^3.0"
-            },
-            "require-dev": {
-                "doctrine/annotations": "~1.0",
-                "ext-phar": "*",
-                "phpunit/phpunit": "^6.2.3",
-                "zendframework/zend-coding-standard": "^1.0.0",
-                "zendframework/zend-stdlib": "^2.7 || ^3.0"
-            },
-            "suggest": {
-                "doctrine/annotations": "Doctrine\\Common\\Annotations >=1.0 for annotation features",
-                "zendframework/zend-stdlib": "Zend\\Stdlib component"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.3.x-dev",
-                    "dev-develop": "3.4.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Zend\\Code\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "provides facilities to generate arbitrary code using an object oriented interface",
-            "homepage": "https://github.com/zendframework/zend-code",
-            "keywords": [
-                "code",
-                "zf2"
-            ],
-            "time": "2018-08-13T20:36:59+00:00"
         },
         {
             "name": "zendframework/zend-component-installer",
@@ -3284,138 +3488,6 @@
                 "zf"
             ],
             "time": "2018-05-03T16:54:11+00:00"
-        },
-        {
-            "name": "zfcampus/zf-apigility-admin",
-            "version": "1.8.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zfcampus/zf-apigility-admin.git",
-                "reference": "e0464d8c212f44efe6f6db3289d73789882a39a6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zfcampus/zf-apigility-admin/zipball/e0464d8c212f44efe6f6db3289d73789882a39a6",
-                "reference": "e0464d8c212f44efe6f6db3289d73789882a39a6",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.6 || ^7.0",
-                "zendframework/zend-code": "^2.6.3 || ^3.2",
-                "zendframework/zend-eventmanager": "^2.6.3 || ^3.0.1",
-                "zendframework/zend-filter": "^2.8",
-                "zendframework/zend-http": "^2.8",
-                "zendframework/zend-hydrator": "^1.1 || ^2.4 || ^3.0",
-                "zendframework/zend-inputfilter": "^2.8.1",
-                "zendframework/zend-modulemanager": "^2.8.2",
-                "zendframework/zend-mvc": "^2.7.15 || ^3.1.1",
-                "zendframework/zend-servicemanager": "^2.7.10 || ^3.3.2",
-                "zendframework/zend-stdlib": "^2.7.7 || ^3.2",
-                "zendframework/zend-validator": "^2.10.2",
-                "zendframework/zend-view": "^2.10",
-                "zfcampus/zf-api-problem": "^1.3",
-                "zfcampus/zf-apigility": "^1.4",
-                "zfcampus/zf-apigility-admin-ui": "^1.3.9",
-                "zfcampus/zf-apigility-provider": "^1.3",
-                "zfcampus/zf-configuration": "1.3.3",
-                "zfcampus/zf-content-negotiation": "^1.4",
-                "zfcampus/zf-content-validation": "^1.4",
-                "zfcampus/zf-hal": "^1.5",
-                "zfcampus/zf-mvc-auth": "^1.5",
-                "zfcampus/zf-oauth2": "^1.5",
-                "zfcampus/zf-rest": "^1.4",
-                "zfcampus/zf-rpc": "^1.4",
-                "zfcampus/zf-versioning": "^1.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1.5",
-                "zendframework/zend-coding-standard": "~1.0.0",
-                "zendframework/zend-config": "^2.6 || ^3.2",
-                "zendframework/zend-loader": "^2.6",
-                "zfcampus/zf-deploy": "^1.3"
-            },
-            "bin": [
-                "bin/apigility-upgrade-to-1.5"
-            ],
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.8.x-dev",
-                    "dev-develop": "1.9.x-dev"
-                },
-                "zf": {
-                    "module": "ZF\\Apigility\\Admin"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "ZF\\Apigility\\Admin\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "Apigility Admin module",
-            "homepage": "http://apigility.org/",
-            "keywords": [
-                "api",
-                "apigility",
-                "framework",
-                "zf2"
-            ],
-            "time": "2019-04-04T14:32:43+00:00"
-        },
-        {
-            "name": "zfcampus/zf-apigility-admin-ui",
-            "version": "1.3.11",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zfcampus/zf-apigility-admin-ui.git",
-                "reference": "4b4435296fa40d7ad2b5d1397a219fb5cbf72140"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zfcampus/zf-apigility-admin-ui/zipball/4b4435296fa40d7ad2b5d1397a219fb5cbf72140",
-                "reference": "4b4435296fa40d7ad2b5d1397a219fb5cbf72140",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.6 || ^7.0",
-                "zendframework/zend-view": "^2.8.1"
-            },
-            "require-dev": {
-                "zendframework/zend-console": "^2.6"
-            },
-            "suggest": {
-                "rwoverdijk/assetmanager": "^1.7, to expose assets under the document root (may not yet be released)",
-                "zfcampus/zf-asset-manager": "^1.0, to expose assets under the document root, until rwoverdijk/assetmanager 1.7 is released"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.3-dev",
-                    "dev-develop": "1.4-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "Module.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "Apigility Admin UI module",
-            "homepage": "http://apigility.org/",
-            "keywords": [
-                "api",
-                "apigility",
-                "framework",
-                "zf2"
-            ],
-            "time": "2018-09-10T21:22:02+00:00"
         },
         {
             "name": "zfcampus/zf-apigility-doctrine",
@@ -5948,6 +6020,59 @@
             "time": "2018-12-25T11:19:39+00:00"
         },
         {
+            "name": "zendframework/zend-code",
+            "version": "3.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-code.git",
+                "reference": "c21db169075c6ec4b342149f446e7b7b724f95eb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-code/zipball/c21db169075c6ec4b342149f446e7b7b724f95eb",
+                "reference": "c21db169075c6ec4b342149f446e7b7b724f95eb",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1",
+                "zendframework/zend-eventmanager": "^2.6 || ^3.0"
+            },
+            "require-dev": {
+                "doctrine/annotations": "~1.0",
+                "ext-phar": "*",
+                "phpunit/phpunit": "^6.2.3",
+                "zendframework/zend-coding-standard": "^1.0.0",
+                "zendframework/zend-stdlib": "^2.7 || ^3.0"
+            },
+            "suggest": {
+                "doctrine/annotations": "Doctrine\\Common\\Annotations >=1.0 for annotation features",
+                "zendframework/zend-stdlib": "Zend\\Stdlib component"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.3.x-dev",
+                    "dev-develop": "3.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\Code\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "provides facilities to generate arbitrary code using an object oriented interface",
+            "homepage": "https://github.com/zendframework/zend-code",
+            "keywords": [
+                "code",
+                "zf2"
+            ],
+            "time": "2018-08-13T20:36:59+00:00"
+        },
+        {
             "name": "zendframework/zend-console",
             "version": "2.8.0",
             "source": {
@@ -6241,6 +6366,138 @@
                 "zf"
             ],
             "time": "2019-06-11T19:33:38+00:00"
+        },
+        {
+            "name": "zfcampus/zf-apigility-admin",
+            "version": "1.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zfcampus/zf-apigility-admin.git",
+                "reference": "e0464d8c212f44efe6f6db3289d73789882a39a6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zfcampus/zf-apigility-admin/zipball/e0464d8c212f44efe6f6db3289d73789882a39a6",
+                "reference": "e0464d8c212f44efe6f6db3289d73789882a39a6",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0",
+                "zendframework/zend-code": "^2.6.3 || ^3.2",
+                "zendframework/zend-eventmanager": "^2.6.3 || ^3.0.1",
+                "zendframework/zend-filter": "^2.8",
+                "zendframework/zend-http": "^2.8",
+                "zendframework/zend-hydrator": "^1.1 || ^2.4 || ^3.0",
+                "zendframework/zend-inputfilter": "^2.8.1",
+                "zendframework/zend-modulemanager": "^2.8.2",
+                "zendframework/zend-mvc": "^2.7.15 || ^3.1.1",
+                "zendframework/zend-servicemanager": "^2.7.10 || ^3.3.2",
+                "zendframework/zend-stdlib": "^2.7.7 || ^3.2",
+                "zendframework/zend-validator": "^2.10.2",
+                "zendframework/zend-view": "^2.10",
+                "zfcampus/zf-api-problem": "^1.3",
+                "zfcampus/zf-apigility": "^1.4",
+                "zfcampus/zf-apigility-admin-ui": "^1.3.9",
+                "zfcampus/zf-apigility-provider": "^1.3",
+                "zfcampus/zf-configuration": "1.3.3",
+                "zfcampus/zf-content-negotiation": "^1.4",
+                "zfcampus/zf-content-validation": "^1.4",
+                "zfcampus/zf-hal": "^1.5",
+                "zfcampus/zf-mvc-auth": "^1.5",
+                "zfcampus/zf-oauth2": "^1.5",
+                "zfcampus/zf-rest": "^1.4",
+                "zfcampus/zf-rpc": "^1.4",
+                "zfcampus/zf-versioning": "^1.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1.5",
+                "zendframework/zend-coding-standard": "~1.0.0",
+                "zendframework/zend-config": "^2.6 || ^3.2",
+                "zendframework/zend-loader": "^2.6",
+                "zfcampus/zf-deploy": "^1.3"
+            },
+            "bin": [
+                "bin/apigility-upgrade-to-1.5"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.8.x-dev",
+                    "dev-develop": "1.9.x-dev"
+                },
+                "zf": {
+                    "module": "ZF\\Apigility\\Admin"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ZF\\Apigility\\Admin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Apigility Admin module",
+            "homepage": "http://apigility.org/",
+            "keywords": [
+                "api",
+                "apigility",
+                "framework",
+                "zf2"
+            ],
+            "time": "2019-04-04T14:32:43+00:00"
+        },
+        {
+            "name": "zfcampus/zf-apigility-admin-ui",
+            "version": "1.3.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zfcampus/zf-apigility-admin-ui.git",
+                "reference": "4b4435296fa40d7ad2b5d1397a219fb5cbf72140"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zfcampus/zf-apigility-admin-ui/zipball/4b4435296fa40d7ad2b5d1397a219fb5cbf72140",
+                "reference": "4b4435296fa40d7ad2b5d1397a219fb5cbf72140",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0",
+                "zendframework/zend-view": "^2.8.1"
+            },
+            "require-dev": {
+                "zendframework/zend-console": "^2.6"
+            },
+            "suggest": {
+                "rwoverdijk/assetmanager": "^1.7, to expose assets under the document root (may not yet be released)",
+                "zfcampus/zf-asset-manager": "^1.0, to expose assets under the document root, until rwoverdijk/assetmanager 1.7 is released"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3-dev",
+                    "dev-develop": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "Module.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Apigility Admin UI module",
+            "homepage": "http://apigility.org/",
+            "keywords": [
+                "api",
+                "apigility",
+                "framework",
+                "zf2"
+            ],
+            "time": "2018-09-10T21:22:02+00:00"
         },
         {
             "name": "zfcampus/zf-asset-manager",

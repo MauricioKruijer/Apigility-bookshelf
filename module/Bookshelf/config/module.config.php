@@ -149,6 +149,10 @@ return [
     ],
     'zf-hal' => [
         'metadata_map' => [
+            'Doctrine\ORM\PersistentCollection' => array(
+                'hydrator' => 'ArraySerializable',
+                'isCollection' => true,
+            ),
             \Application\Entity\Album::class => [
                 'route_identifier_name' => 'album_id',
                 'entity_identifier_name' => 'id',
@@ -165,6 +169,7 @@ return [
                 'entity_identifier_name' => 'id',
                 'route_name' => 'bookshelf.rest.doctrine.author',
                 'hydrator' => 'Bookshelf\\V1\\Rest\\Author\\AuthorHydrator',
+                'max_depth' => 1,
             ],
             \Bookshelf\V1\Rest\Author\AuthorCollection::class => [
                 'entity_identifier_name' => 'id',

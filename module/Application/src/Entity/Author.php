@@ -2,6 +2,7 @@
 
 namespace Application\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +42,36 @@ class Author
      * @ORM\Column(name="created_at", type="datetime", nullable=true)
      */
     private $createdAt;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Book", mappedBy="author")
+     */
+    private $books;
+
+    public function __construct()
+    {
+        $this->books = new ArrayCollection();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBooks()
+    {
+        return $this->books;
+    }
+
+    /**
+     * @param mixed $books
+     *
+     * @return Author
+     */
+    public function setBooks($books)
+    {
+        $this->books = $books;
+
+        return $this;
+    }
 
     /**
      * @return int

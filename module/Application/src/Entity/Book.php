@@ -36,6 +36,11 @@ class Book
     private $createdAt;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Author", inversedBy="book")
+     */
+    private $author;
+
+    /**
      * @return int
      */
     public function getId()
@@ -81,5 +86,25 @@ class Book
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * @param Author $author
+     *
+     * @return Book
+     */
+    public function setAuthor(Author $author)
+    {
+        $this->author = $author;
+
+        return $this;
     }
 }

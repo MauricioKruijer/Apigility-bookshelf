@@ -37,7 +37,6 @@ class Book
 
     /**
      * @ORM\ManyToOne(targetEntity="Author", inversedBy="book")
-     * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
      */
     private $author;
 

@@ -2,7 +2,7 @@
 
 namespace Application\Entity;
 
-use Bookshelf\V1\Rest\Book\BookCollection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -47,6 +47,31 @@ class Author
      * @ORM\OneToMany(targetEntity="Book", mappedBy="author")
      */
     private $books;
+
+    public function __construct()
+    {
+        $this->books = new ArrayCollection();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBooks()
+    {
+        return $this->books;
+    }
+
+    /**
+     * @param mixed $books
+     *
+     * @return Author
+     */
+    public function setBooks($books)
+    {
+        $this->books = $books;
+
+        return $this;
+    }
 
     /**
      * @return int
@@ -110,17 +135,5 @@ class Author
     public function setName($name)
     {
         $this->name = $name;
-    }
-
-    public function getBooks()
-    {
-        return $this->books;
-    }
-
-    public function setBooks($books)
-    {
-        $this->books = $books;
-
-        return $this;
     }
 }
